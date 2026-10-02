@@ -28,7 +28,7 @@ Then open `http://localhost:8000`.
 - Select one or two travelers who are on the same side as the flashlight.
 - Click **Send Across** or **Bring Back**.
 - A crossing costs the time of the slower selected traveler.
-- The fastest possible solution is **17 minutes**.
+- The fastest possible solution is **?? minutes**.
 - The bridge shakes while characters cross and the app generates playful sound effects with the browser's Web Audio API.
 - No external images, fonts, libraries, audio files, or network calls are required.
 

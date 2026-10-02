@@ -180,9 +180,9 @@
     if (optimal) {
       modalBackdrop.hidden = false;
       el('resultFace').textContent = '🏆';
-      el('resultTitle').textContent = 'You won! 17 minutes!';
+      el('resultTitle').textContent = 'You won! This is the fastest!';
       el('resultText').textContent = 'Perfect crossing! You found the fastest solution. Ta-da!';
-      setFeedback('good', '🎉', 'Perfect!', 'Everyone crossed in the fastest possible time: 17 minutes.');
+      setFeedback('good', '🎉', 'Perfect!', 'Everyone crossed in the fastest possible time');
       fanfare();
     } else if (under) {
       // Defensive: should be impossible with the puzzle rules.
