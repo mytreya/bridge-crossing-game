@@ -1,7 +1,7 @@
 (() => {
   const people = [
     { id: 'star', name: 'Freshman Track Star', short: 'Track Star', time: 1, emoji: '🏃', cls: 'card-red' },
-    { id: 'design', name: 'Digital Design Student', short: 'Design Student', time: 2, emoji: '🧑‍💻', cls: 'card-purple' },
+    { id: 'design', name: 'Fashion Design Student', short: 'Design Student', time: 2, emoji: '🧑‍💻', cls: 'card-purple' },
     { id: 'ta', name: 'Teaching Assistant', short: 'Teaching Assistant', time: 5, emoji: '🧑‍🏫', cls: 'card-green' },
     { id: 'prof', name: 'Professor', short: 'Professor', time: 10, emoji: '👨‍🏫', cls: 'card-gold' }
   ];
