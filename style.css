@@ -699,3 +699,46 @@ button:focus-visible, [tabindex]:focus-visible { outline: 4px solid #fff36a; out
     flex-basis: auto;
   }
 }
+
+
+/* =========================================================
+   MOBILE ACTION BUTTON FIX
+   Keep the crossing control visible while the bridge is on screen.
+   Desktop layout remains unchanged.
+   ========================================================= */
+@media (max-width: 760px) {
+  body {
+    padding-bottom: 82px;
+  }
+
+  #crossBtn {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 45;
+    width: auto;
+    min-height: 58px;
+    border: 3px solid rgba(12, 49, 19, .35);
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.38), inset 0 -4px 0 rgba(0,0,0,.15);
+    font-size: 1.08rem;
+  }
+
+  #crossBtn:disabled {
+    opacity: .62;
+  }
+
+  .selection-card {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  #crossBtn {
+    left: 8px;
+    right: 8px;
+    min-height: 54px;
+    font-size: 1rem;
+  }
+}

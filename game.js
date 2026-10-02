@@ -266,7 +266,26 @@
   function wahWah(){ tone(310,.18,'sawtooth',.035); tone(220,.22,'sawtooth',.03,.17); tone(150,.28,'sawtooth',.025,.36); }
   function fanfare(){ [523,659,784,1047].forEach((f,i)=>tone(f,.24,'triangle',.055,i*.11)); }
 
-  crossBtn.addEventListener('click', makeMove);
+  crossBtn.addEventListener(
+    'click',
+    async () => {
+      if (window.innerWidth <= 700) {
+        bridge.scrollIntoView({
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+          block: 'center'
+        });
+  
+        await new Promise(resolve =>
+          setTimeout(
+            resolve,
+            prefersReducedMotion() ? 50 : 450
+          )
+        );
+      }
+  
+      makeMove();
+    }
+  );
   el('resetBtn').addEventListener('click', () => resetGame());
   el('clearBtn').addEventListener('click', () => {
     if (state.busy) return;
