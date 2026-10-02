@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0a1730" />
+  <title>Bridge Crossing Puzzle</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" id="game" tabindex="-1">
+    <header class="topbar">
+      <div class="timer-card" aria-label="Total time">
+        <span class="timer-label">Total Time</span>
+        <span class="timer-value"><strong id="timeValue">0</strong> min</span>
+        <span class="goal-label">Fastest possible: 17 min</span>
+      </div>
+
+      <div class="title-wrap">
+        <h1>Bridge Crossing Puzzle</h1>
+        <p>Get everyone across in the <strong>fastest time!</strong></p>
+      </div>
+
+      <button class="sound-btn" id="soundBtn" type="button" aria-pressed="true" aria-label="Turn sound off">
+        <span aria-hidden="true" id="soundIcon">🔊</span>
+        <span id="soundText">Sound on</span>
+      </button>
+    </header>
+
+    <section class="play-grid">
+      <aside class="left-panel panel">
+        <h2>Characters <small>click to select</small></h2>
+        <div id="characterCards" class="character-list"></div>
+
+        <section class="rules-card">
+          <h3>Rules</h3>
+          <ul>
+            <li>👫 Up to 2 people can cross at a time.</li>
+            <li>🔦 There is only 1 flashlight.</li>
+            <li>🚫 The flashlight cannot be thrown.</li>
+            <li>↩️ Someone must carry it back.</li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="scene-wrap" aria-label="Bridge game scene">
+        <div class="sky" aria-hidden="true">
+          <span class="moon"></span>
+          <span class="star s1">✦</span><span class="star s2">✧</span><span class="star s3">✦</span><span class="star s4">·</span>
+          <div class="mountain m1"></div><div class="mountain m2"></div>
+        </div>
+
+        <div class="bank bank-left">
+          <div class="sign">START ➜</div>
+          <div class="lantern" aria-hidden="true">🏮</div>
+          <div id="leftPeople" class="people-zone" aria-label="People on start side"></div>
+        </div>
+
+        <div id="bridge" class="bridge" aria-hidden="true">
+          <div class="rope rope-top"></div>
+          <div class="rope rope-bottom"></div>
+          <div class="planks" id="planks"></div>
+          <div class="crossers" id="crossers"></div>
+          <div class="flash-beam" id="flashBeam"></div>
+          <span class="sfx sfx-creak" id="sfxCreak">Creak!</span>
+          <span class="sfx sfx-wobble" id="sfxWobble">Wobble!</span>
+        </div>
+
+        <div class="gorge" aria-hidden="true">
+          <div class="water">≈≈≈≈≈≈≈≈≈</div>
+        </div>
+
+        <div class="bank bank-right">
+          <div class="sign">GOAL ➜</div>
+          <div class="lantern" aria-hidden="true">🏮</div>
+          <div id="rightPeople" class="people-zone" aria-label="People on far side"></div>
+        </div>
+
+        <div class="bridge-warning" aria-hidden="true">⚠ RICKETY BRIDGE!</div>
+
+        <div class="feedback" id="feedback" role="status" aria-live="polite">
+          <span class="feedback-emoji" id="feedbackEmoji">🔦</span>
+          <div>
+            <strong id="feedbackTitle">Pick your travelers!</strong>
+            <p id="feedbackText">Choose one or two people standing with the flashlight.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="right-panel panel">
+        <section class="selection-card">
+          <h2>Selected <small>up to 2 people</small></h2>
+          <div class="selected-slots" id="selectedSlots">
+            <div class="slot">+</div><div class="slot">+</div>
+          </div>
+          <button id="crossBtn" class="primary-btn" type="button" disabled>Send Across ➜</button>
+          <div class="small-actions">
+            <button id="resetBtn" class="secondary-btn" type="button">↻ Reset</button>
+            <button id="hintBtn" class="hint-btn" type="button">💡 Hint</button>
+          </div>
+        </section>
+
+        <section class="log-card">
+          <div class="log-head">
+            <h2>Move Log</h2>
+            <button id="clearBtn" type="button" class="text-btn">Clear</button>
+          </div>
+          <ol id="moveLog" class="move-log"></ol>
+        </section>
+      </aside>
+    </section>
+
+    <section class="instructions panel">
+      <strong>How to play:</strong> Select 1 or 2 people on the same side as the flashlight, then press the crossing button. Their move takes as long as the slower traveler. Get all four across in 17 minutes.
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop" hidden>
+    <section class="result-modal" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="confetti" aria-hidden="true">✨ 🎉 ⭐ 🎊 ✨</div>
+      <div class="result-face" id="resultFace">🏆</div>
+      <h2 id="resultTitle">You won!</h2>
+      <p id="resultText"></p>
+      <div class="result-actions">
+        <button id="playAgainBtn" class="primary-btn" type="button">Play again</button>
+        <button id="keepBtn" class="secondary-btn" type="button">Review moves</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
