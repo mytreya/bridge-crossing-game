@@ -156,3 +156,546 @@ button:focus-visible, [tabindex]:focus-visible { outline: 4px solid #fff36a; out
   .feedback { max-width:220px; font-size:.8rem; }
   .person-token { width:45px; font-size:.64rem; } .person-token .head { font-size:2rem; }
 }
+
+/* =========================================================
+   ENHANCED RESPONSIVE LAYOUT
+   Desktop appearance above 1050px is intentionally unchanged.
+   ========================================================= */
+
+/* Tablet / compact laptop */
+@media (max-width: 900px) {
+  .game-shell {
+    width: 100%;
+    max-width: none;
+  }
+
+  .play-grid {
+    grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  }
+
+  .scene-wrap {
+    min-width: 0;
+  }
+
+  .right-panel {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .character-card {
+    grid-template-columns: 52px minmax(0, 1fr) auto;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 1.8rem;
+  }
+}
+
+/* Phone / small tablet */
+@media (max-width: 760px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  .game-shell {
+    padding: 8px;
+  }
+
+  .topbar {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .title-wrap {
+    padding: 10px 9px;
+    border-radius: 16px;
+  }
+
+  .title-wrap h1 {
+    font-size: clamp(1.65rem, 8vw, 2.35rem);
+  }
+
+  .title-wrap p {
+    font-size: .86rem;
+    line-height: 1.25;
+  }
+
+  .timer-card {
+    min-height: 72px;
+    padding: 7px 10px;
+    border-radius: 16px;
+  }
+
+  .timer-label {
+    font-size: .95rem;
+  }
+
+  .timer-value {
+    font-size: 1.45rem;
+  }
+
+  .goal-label {
+    font-size: .68rem;
+  }
+
+  .sound-btn {
+    min-height: 72px;
+    border-radius: 16px;
+    padding: 6px;
+    font-size: .78rem;
+    touch-action: manipulation;
+  }
+
+  .sound-btn span:first-child {
+    font-size: 1.55rem;
+  }
+
+  .play-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  /* Scene stays visually first on phones. */
+  .scene-wrap {
+    order: 1;
+    width: 100%;
+    min-height: 430px;
+    border-width: 3px;
+    border-radius: 18px;
+  }
+
+  .left-panel {
+    order: 2;
+  }
+
+  .right-panel {
+    order: 3;
+  }
+
+  .panel {
+    border-radius: 16px;
+    padding: 10px;
+  }
+
+  .panel h2 {
+    font-size: 1.12rem;
+    margin-bottom: 8px;
+  }
+
+  /* Put the 4 character choices in a compact two-column grid. */
+  .character-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .character-card {
+    min-width: 0;
+    min-height: 86px;
+    padding: 7px;
+    grid-template-columns: 44px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 7px;
+    row-gap: 2px;
+    border-radius: 13px;
+    touch-action: manipulation;
+  }
+
+  .avatar {
+    grid-row: 1 / span 2;
+    width: 43px;
+    height: 43px;
+    font-size: 1.55rem;
+  }
+
+  .char-name {
+    font-size: .78rem;
+    line-height: 1.05;
+    overflow-wrap: anywhere;
+  }
+
+  .char-time {
+    margin-top: 3px;
+    padding: 2px 6px;
+    font-size: .73rem;
+  }
+
+  .checkbox-dot {
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    right: 6px;
+    top: 6px;
+    border-width: 2px;
+    background: rgba(255,255,255,.8);
+  }
+
+  .character-card {
+    position: relative;
+  }
+
+  .character-card > span:nth-child(2) {
+    min-width: 0;
+    padding-right: 21px;
+  }
+
+  .rules-card {
+    margin-top: 8px;
+    padding: 8px 9px;
+  }
+
+  .rules-card ul {
+    font-size: .79rem;
+    line-height: 1.4;
+  }
+
+  /* Preserve the wide bridge composition, but reduce scene height and crowding. */
+  .sky {
+    inset: 0 0 43% 0;
+  }
+
+  .gorge {
+    inset: 43% 0 0;
+  }
+
+  .moon {
+    width: 48px;
+    height: 48px;
+    right: 7%;
+    top: 7%;
+  }
+
+  .mountain {
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-bottom-width: 155px;
+  }
+
+  .bank {
+    width: 31%;
+    height: 48%;
+    padding: 8px;
+  }
+
+  .sign {
+    margin-top: 4px;
+    padding: 4px 7px;
+    font-size: .7rem;
+    border-width: 2px;
+  }
+
+  .lantern {
+    font-size: 1.45rem;
+  }
+
+  .people-zone {
+    left: 5px;
+    right: 5px;
+    bottom: 8px;
+    min-height: 82px;
+    gap: 0;
+  }
+
+  .person-token {
+    width: 40px;
+    font-size: .52rem;
+    line-height: 1.05;
+  }
+
+  .person-token .head {
+    font-size: 1.7rem;
+  }
+
+  .bridge {
+    left: 20%;
+    right: 20%;
+    top: 46%;
+    height: 125px;
+  }
+
+  .planks {
+    top: 38px;
+    height: 66px;
+  }
+
+  .crosser {
+    font-size: 2.4rem;
+  }
+
+  .flash-beam {
+    top: 42px;
+    width: 82px;
+    height: 38px;
+  }
+
+  .bridge-warning {
+    bottom: 22%;
+    padding: 4px 7px;
+    font-size: .64rem;
+    white-space: nowrap;
+  }
+
+  .sfx {
+    font-size: 1rem;
+  }
+
+  /* Feedback becomes a compact banner rather than covering the bridge. */
+  .feedback {
+    left: 8px;
+    right: 8px;
+    top: 8px;
+    max-width: none;
+    padding: 7px 9px;
+    border-width: 2px;
+    border-radius: 13px;
+  }
+
+  .feedback-emoji {
+    font-size: 1.4rem;
+  }
+
+  .feedback strong {
+    font-size: .88rem;
+  }
+
+  .feedback p {
+    margin-top: 1px;
+    font-size: .7rem;
+    line-height: 1.25;
+  }
+
+  .selection-card {
+    padding: 9px;
+  }
+
+  .selected-slots {
+    gap: 7px;
+    margin: 7px 0;
+  }
+
+  .slot {
+    min-height: 64px;
+  }
+
+  .slot.filled {
+    font-size: .74rem;
+  }
+
+  .slot .big {
+    font-size: 1.7rem;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .hint-btn,
+  .text-btn {
+    touch-action: manipulation;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .hint-btn {
+    min-height: 50px;
+    font-size: 1rem;
+  }
+
+  .small-actions {
+    gap: 7px;
+  }
+
+  .move-log {
+    max-height: none;
+    overflow: visible;
+    font-size: .8rem;
+  }
+
+  .instructions {
+    margin-top: 8px;
+    padding: 9px;
+    font-size: .82rem;
+    line-height: 1.35;
+  }
+
+  .result-modal {
+    padding: 17px 13px;
+    border-width: 4px;
+    border-radius: 18px;
+  }
+
+  .result-face {
+    font-size: 3.2rem;
+  }
+
+  .result-modal h2 {
+    font-size: 1.65rem;
+  }
+
+  .result-modal p {
+    font-size: .95rem;
+  }
+
+  .result-actions {
+    flex-wrap: wrap;
+  }
+
+  .result-actions .primary-btn,
+  .result-actions .secondary-btn {
+    flex: 1 1 150px;
+  }
+}
+
+/* Narrow phones */
+@media (max-width: 480px) {
+  .game-shell {
+    padding: 6px;
+  }
+
+  .topbar {
+    grid-template-columns: minmax(0, 1fr) 76px;
+  }
+
+  .sound-btn {
+    min-width: 0;
+  }
+
+  .scene-wrap {
+    min-height: 395px;
+  }
+
+  .character-list {
+    grid-template-columns: 1fr;
+  }
+
+  .character-card {
+    min-height: 68px;
+    grid-template-columns: 48px minmax(0, 1fr) 24px;
+    grid-template-rows: auto;
+    padding: 7px 9px;
+  }
+
+  .character-card > span:nth-child(2) {
+    padding-right: 0;
+  }
+
+  .checkbox-dot {
+    position: static;
+  }
+
+  .avatar {
+    grid-row: auto;
+    width: 46px;
+    height: 46px;
+    font-size: 1.65rem;
+  }
+
+  .char-name {
+    font-size: .86rem;
+  }
+
+  .char-time {
+    font-size: .76rem;
+  }
+
+  .rules-card ul {
+    padding-left: 18px;
+  }
+
+  .bank {
+    width: 34%;
+  }
+
+  .bridge {
+    left: 22%;
+    right: 22%;
+    height: 112px;
+  }
+
+  .planks {
+    top: 34px;
+    height: 58px;
+  }
+
+  .rope-top {
+    top: 17px;
+  }
+
+  .bridge-warning {
+    bottom: 21%;
+    font-size: .58rem;
+  }
+
+  .feedback {
+    padding: 6px 8px;
+  }
+
+  .feedback p {
+    font-size: .66rem;
+  }
+
+  .small-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Extra-small phones: prioritize usability over decorative density. */
+@media (max-width: 360px) {
+  .scene-wrap {
+    min-height: 370px;
+  }
+
+  .title-wrap h1 {
+    font-size: 1.55rem;
+  }
+
+  .title-wrap p {
+    font-size: .76rem;
+  }
+
+  .timer-card,
+  .sound-btn {
+    min-height: 66px;
+  }
+
+  .person-token {
+    width: 34px;
+    font-size: .47rem;
+  }
+
+  .person-token .head {
+    font-size: 1.48rem;
+  }
+
+  .bridge {
+    left: 23%;
+    right: 23%;
+  }
+
+  .crosser {
+    font-size: 2rem;
+  }
+
+  .bridge-warning {
+    display: none;
+  }
+
+  .small-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .result-actions .primary-btn,
+  .result-actions .secondary-btn {
+    width: 100%;
+    flex-basis: auto;
+  }
+}
