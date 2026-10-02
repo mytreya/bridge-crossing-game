@@ -195,7 +195,7 @@
       modalBackdrop.hidden = false;
       el('resultFace').textContent = '😄';
       el('resultTitle').textContent = 'Everyone made it… but not fastest!';
-      el('resultText').textContent = `You took ${state.time} minutes. Can you beat that and reach 17?`;
+      el('resultText').textContent = `You took ${state.time} minutes. Can you beat that and reach faster?`;
       setFeedback('bad', '⏱️', 'So close!', `Everyone crossed in ${state.time} minutes. Try a different combination to reach 17.`);
       wahWah();
     }
